@@ -1,0 +1,9 @@
+dependencies:
+  override:
+    - pip install -r requirements-dev.txt
+
+test:
+  override:
+    - nosetests --with-coverage --cover-package=tests
+  post:
+    - bash <(curl -s https://codecov.io/bash)
