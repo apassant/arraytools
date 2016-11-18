@@ -29,19 +29,19 @@ def flatten(array_to_flatten, allowed_types=(object)):
         raise TypeError("Input must be in {array_types}".format(**{
             "array_types": array_types
         }))
-    flat_list = []
+    flat_array = []
     for element in array_to_flatten:
         if isinstance(element, array_types):
-            flat_list += flatten(element)
+            flat_array += flatten(element)
         elif isinstance(element, allowed_types):
-            flat_list.append(element)
+            flat_array.append(element)
         else:
             raise TypeError(
                 "Array must contain {array_types} or {allowed_types}".format(**{  # noqa
                     "array_types": array_types,
                     "allowed_types": allowed_types
                 }))
-    return flat_list
+    return flat_array
 
 
 def flatten_integers(array_to_flatten):
